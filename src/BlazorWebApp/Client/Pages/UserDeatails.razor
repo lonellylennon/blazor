@@ -1,5 +1,7 @@
 ﻿@page "/userdetails/{userId:int}"
 @using BlazorWebApp.Models
+@using BlazorWebApp.Services
+@inject ApplicationState AppState
 @inject NavigationManager Navigation
 @code {
     [Parameter]
@@ -9,20 +11,13 @@
 
     protected override void OnInitialized()
     {
-        currentUser = users.FirstOrDefault(u => u.Id == userId);
+        currentUser = AppState.GetUserById(userId);
         if (currentUser == null)
         {
             // Redirect to the users page if the user is not found
             Navigation.NavigateTo("/users");
         }
     }
-
-    private List<User> users = new List<User>
-    {
-        // This should be replaced with actual data fetching logic
-        new User { Id = 1, Name = "John Doe", PhoneNumber = "123-456-7890", Experience = 5, Skills = "C#, SQL" },
-        new User { Id = 2, Name = "Jane Smith", PhoneNumber = "098-765-4321", Experience = 3, Skills = "JavaScript, HTML, CSS" }
-    };
 }
 
 <h3>User Details</h3>
