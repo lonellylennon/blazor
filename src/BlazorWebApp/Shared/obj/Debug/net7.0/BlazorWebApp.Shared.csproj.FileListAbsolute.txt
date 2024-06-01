@@ -1,0 +1,12 @@
+F:\Навчання\blazor\src\BlazorWebApp\Shared\bin\Debug\net7.0\BlazorWebApp.Shared.deps.json
+F:\Навчання\blazor\src\BlazorWebApp\Shared\bin\Debug\net7.0\BlazorWebApp.Shared.dll
+F:\Навчання\blazor\src\BlazorWebApp\Shared\bin\Debug\net7.0\BlazorWebApp.Shared.pdb
+F:\Навчання\blazor\src\BlazorWebApp\Shared\obj\Debug\net7.0\BlazorWebApp.Shared.GeneratedMSBuildEditorConfig.editorconfig
+F:\Навчання\blazor\src\BlazorWebApp\Shared\obj\Debug\net7.0\BlazorWebApp.Shared.AssemblyInfoInputs.cache
+F:\Навчання\blazor\src\BlazorWebApp\Shared\obj\Debug\net7.0\BlazorWebApp.Shared.AssemblyInfo.cs
+F:\Навчання\blazor\src\BlazorWebApp\Shared\obj\Debug\net7.0\BlazorWebApp.Shared.csproj.CoreCompileInputs.cache
+F:\Навчання\blazor\src\BlazorWebApp\Shared\obj\Debug\net7.0\BlazorWebApp.Shared.sourcelink.json
+F:\Навчання\blazor\src\BlazorWebApp\Shared\obj\Debug\net7.0\BlazorWebApp.Shared.dll
+F:\Навчання\blazor\src\BlazorWebApp\Shared\obj\Debug\net7.0\refint\BlazorWebApp.Shared.dll
+F:\Навчання\blazor\src\BlazorWebApp\Shared\obj\Debug\net7.0\BlazorWebApp.Shared.pdb
+F:\Навчання\blazor\src\BlazorWebApp\Shared\obj\Debug\net7.0\ref\BlazorWebApp.Shared.dll
