@@ -1,0 +1,102 @@
+﻿@page "/activitylog"
+@using BlazorWebApp.Models
+@using BlazorWebApp.Services
+
+<h3>ActivityLog : <span class="text-danger">@listTitle</span></h3>
+
+<button class="btn btn-primary" @onclick="ShowAddActivityForm">Додати Запис</button>
+
+@if (showAddActivityForm || showEditActivityForm)
+{
+    <!-- Форма для додавання або редагування запису в журналі активності -->
+    <EditForm Model="@currentActivity" OnValidSubmit="SaveActivity">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="form-group">
+            <label for="description">Description</label>
+            <InputText id="description" class="form-control" @bind-Value="currentActivity.Description" />
+        </div>
+
+        <button type="submit" class="btn btn-success">@formButtonLabel</button>
+        <button type="button" class="btn btn-secondary" @onclick="CancelEdit">Скасувати</button>
+    </EditForm>
+}
+
+<!-- Таблиця для відображення записів з журналу активності -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>Date Time</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var entry in activityLog)
+        {
+            <tr>
+                <td>@entry.DateTime</td>
+                <td>@entry.Description</td>
+                <td>
+                    <button class="btn btn-info" @onclick="() => EditActivity(entry)">Редагувати</button>
+                    <button class="btn btn-danger" @onclick="() => DeleteActivity(entry.Id)">Видалити</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    string listTitle = "Журнал Активностей";
+    private ActivityLog currentActivity = new ActivityLog();
+    private bool showAddActivityForm = false;
+    private bool showEditActivityForm = false;
+    private string formButtonLabel = "Додати";
+    private List<ActivityLog> activityLog = new List<ActivityLog>();
+
+    private void ShowAddActivityForm()
+    {
+        currentActivity = new ActivityLog();
+        showAddActivityForm = true;
+        showEditActivityForm = false;
+        formButtonLabel = "Додати";
+    }
+
+    private void EditActivity(ActivityLog entry)
+    {
+        currentActivity = new ActivityLog
+            {
+                Id = entry.Id,
+                DateTime = entry.DateTime,
+                Description = entry.Description
+            };
+        showAddActivityForm = false;
+        showEditActivityForm = true;
+        formButtonLabel = "Зберегти";
+    }
+
+    private void SaveActivity()
+    {
+        if (showAddActivityForm)
+        {
+            activityLog.Add(currentActivity);
+        }
+        else if (showEditActivityForm)
+        {
+            // Здійсніть збереження змін у записі в журналі активності
+        }
+        CancelEdit();
+    }
+
+    private void DeleteActivity(int id)
+    {
+        // Здійсніть видалення запису з журналу активності
+    }
+
+    private void CancelEdit()
+    {
+        showAddActivityForm = false;
+        showEditActivityForm = false;
+    }
+}
